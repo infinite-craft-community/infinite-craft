@@ -108,6 +108,7 @@ export function defineApiRoute<
       typeof config.path === "function" ? config.path(opts) : config.path;
 
     const url = buildUrl(resolvedPath, opts.params);
+    // oxlint-disable no-unnecessary-condition (We may add other methods later)
     const isGet = config.method === "GET";
 
     const response = await fetch(url, {
